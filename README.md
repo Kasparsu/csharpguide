@@ -32,6 +32,8 @@ different simple types are
 * `set<type>` or `hashset` etc - contains list of unique values. no repeats are inserted.
 * `dictionary<type, type>` - key, value list that can have a key value tied to value.
 
+there is also special type `var` that will be automatically set to whatever you specify its value.
+
 ##Examples
 
 ```
@@ -47,6 +49,9 @@ DateTime time = DateTime.Now;
 List<int> numList = new List<int>();
 HashSet<int> numSet = new Set<int>();
 Dictionart<string, int> = new Dictionary<string, int>();
+var vNum = 1;  // will be integer
+var vStr = "Hello World"; // will be string
+
 ```
 
 ## Operations
@@ -58,6 +63,11 @@ Dictionart<string, int> = new Dictionary<string, int>();
 * `num *= 2;` multiplication ...
 * `num++;` increment by one
 * `num--;` decrement by one
+* `a + b`  addition
+* `a - b`
+* `a/b`
+* `a*b`
+* `a%b` modulo, will display leftover from division
 
 #Strings
 
