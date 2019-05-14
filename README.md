@@ -7,7 +7,7 @@
 * dictionaries
 * loops
 * enums
-* objects
+* objects, classes
 
 
 # Variables
@@ -45,7 +45,7 @@ bool isLie = false;
 int[] arr = {1,2,3};
 DateTime time = DateTime.Now;
 List<int> numList = new List<int>();
-Set<int> numSet = new Set<int>();
+HashSet<int> numSet = new Set<int>();
 Dictionart<string, int> = new Dictionary<string, int>();
 ```
 
@@ -184,3 +184,194 @@ https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-2.2#met
 
 Arrays are way to keep values in a list which lenght is known from start.
 
+```
+int[] arr = {1,2,3};
+int[] arr1 = new int[5];
+arr1[0] = 2;
+Console.WriteLine(arr[0]);
+Console.WriteLine(arr1[0]);
+```
+
+#List
+
+Lists are to keep values in a list which length is variable and you do not know it at the start of the code
+
+```
+List<int> numList = new List<int>();
+numList.Add(1);
+Console.WriteLine(numList[0]);
+```
+
+# Sets
+
+Sets are to keep values that are unique if you insert value that allready exists it will not be added again.
+
+```
+HashSet<int> numSet = new HashSet<int>();
+numSet.Add(1);
+Console.WriteLine(numSet.Contains(1));
+Console.WriteLine(numSet.Count);
+numSet.Add(2);
+Console.WriteLine(numSet.Count);
+numSet.Add(1);
+Console.WriteLine(numSet.Count);
+```
+
+# Dictionaries
+
+Are list of key,value elements where key must be unique
+
+```
+Dictionary<string, int> numDict = new Dictionary<string, int>();
+numDict.Add("hi", 1);
+Console.WriteLine(numDict["hi"]);
+```
+# Loops 
+
+Loops are used to iterate over same code multiple times.
+
+## for loop
+
+for loop is used when number of times we want to iterate is known
+for loop consists of 3 parts.
+* initial value, usually we create new variable here
+* condition when we end the loop
+* action we take after each loop
+
+```
+for(int i=0; i<=10; i++){
+    Console.WriteLine(i);
+}
+```
+
+## while loop
+
+while loop is when we do not know the iteration count, but only know when to end it
+only parameter here is statement when to end.
+
+```
+int i = 0;
+while(i<=10){
+    Console.WriteLine(i);
+    i++;
+}
+```
+
+## do while loop
+
+Same as while loop but instead of checking if the statement is true in the beginning we do it at the end.
+so if while statement is false from start it will skip code entirely. do while loop will run atleast once.
+
+```
+int i = 0;
+do{
+    Console.WriteLine(i);
+    i++;
+} while(i<=10);
+```
+
+## foreach 
+
+foreach loop is used to easily iterate over array, list, dictonary ... values
+
+
+```
+List<int> numlist = new List<int>();
+foreach (var num in numlist)
+{
+    Console.WriteLine(num);
+}
+```
+
+# Enums
+
+Is custom type that specifies values that can belong in it.
+
+```
+class Program
+    {
+        enum WeekDays
+        {
+            Monday = 0,
+            Tuesday = 1,
+            Wednesday = 2,
+            Thursday = 3,
+            Friday = 4,
+            Saturday = 5,
+            Sunday = 6
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(WeekDays.Thursday);
+        }
+    }
+```
+
+# Objects,Classes
+
+Object is its own type and can hold values and methods that can be called outside or inside of the object.
+Class is blueprint for an object in code form. Object is when new is called on the class.
+```
+class Car
+{
+    
+}
+```
+
+## constructor
+
+Class has a special constructor function that is called when new is called on it.
+Constructor is special method because it does not have return type. Input arguments work as intended these are arguments that are passed down to new Object like this `new Car("Maali");`
+```
+class Car
+{
+    public Car(string CarName){
+        
+    }
+}
+```
+
+## visibility
+
+Class methods (functions) and properties (variables) will need a visibility
+* `public` - anything can edit and read
+* `protected` - class and its child classes can edit and read
+* `private` - only class itself can read and edit
+
+## object properties
+
+Object or Class can have properties that can be accessed on the object.
+Property must also have visibility that defines what parts of code can access it.
+
+
+```
+class Car
+{
+
+    private int prodYear = 1992;
+    public string model = "astra";
+    protected float gas = 5.2;
+    public Car(){
+        
+    }
+}
+```
+## object methods
+
+methods must have visibility and return type defined and can also have input parameters
+
+```
+class Car
+{
+
+    private int prodYear = 1992;
+    public string model = "astra";
+    protected float gas = 5.2;
+    public Car(){
+        
+    }
+    public void drive(int km){
+        Console.WriteLine("wroom wroom " + km);
+    }
+}
+```
